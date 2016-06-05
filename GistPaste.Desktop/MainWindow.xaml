@@ -12,7 +12,8 @@
         Topmost="True"
         AllowsTransparency="True"
         WindowStyle="None"
-        Activated="Window_Activated">
+        Activated="Window_Activated"
+        KeyDown="Window_KeyDown">
     <Grid>
         <TextBox Name="SearchBox" LostKeyboardFocus="SearchBox_LostKeyboardFocus" />
     </Grid>
