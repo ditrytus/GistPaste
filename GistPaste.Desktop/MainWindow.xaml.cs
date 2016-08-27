@@ -27,7 +27,7 @@ namespace GistPaste.Desktop
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            SearchBox.Focus();
+            Keyboard.Focus(SearchBox);
         }
 
         private void SearchBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
