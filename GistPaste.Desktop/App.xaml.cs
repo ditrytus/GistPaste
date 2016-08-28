@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Reactive.Linq;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Windows.Input;
 
 namespace GistPaste.Desktop
 {
@@ -15,20 +12,20 @@ namespace GistPaste.Desktop
     /// </summary>
     public partial class App : Application
     {
-        IDisposable globalKeyboard;
-        IDisposable writeKeyDescription;
+        IDisposable keyboardHook;
 
         public App()
         {
-            var gk = new LowLevelKeyboard();
-            globalKeyboard = gk;
-            writeKeyDescription = gk.KeyboardEvents.Subscribe(keyEvent => Debug.WriteLine($"{keyEvent.Key}, {keyEvent.Message}"));
+            keyboardHook = new LowLevelKeyboardHook()
+                .Subscribe(m =>
+                {
+                    Debug.WriteLine(KeyInterop.KeyFromVirtualKey(Marshal.ReadInt32(m.LParam)));
+                });
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            writeKeyDescription.Dispose();
-            globalKeyboard.Dispose();
+            keyboardHook.Dispose();
             base.OnExit(e);
         }
     }

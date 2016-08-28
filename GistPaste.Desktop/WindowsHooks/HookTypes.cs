@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace GistPaste.Desktop
 {
-    enum LowLevelKeyboardMessages
+    static class HookTypes
     {
-        WM_KEYDOWN = 0x0100,
-        WM_KEYUP = 0x0101,
+        public const int WH_KEYBOARD_LL = 13;
     }
 }

@@ -9,13 +9,13 @@ namespace GistPaste.Desktop
 {
     struct KeyboardEvent
     {
-        public KeyboardEvent(Key key, LowLevelKeyboardMessages message)
+        public KeyboardEvent(Key key, MessageTypes message)
         {
             Key = key;
             Message = message;
         }
 
         public Key Key { get; }
-        public LowLevelKeyboardMessages Message { get; }
+        public MessageTypes Message { get; }
     }
 }
