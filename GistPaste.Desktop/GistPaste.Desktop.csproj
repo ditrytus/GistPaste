@@ -75,7 +75,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WindowsHooks\LowLevelKeyboardHookSubscription.cs" />
     <Compile Include="WindowsHooks\HookCallbackCodes.cs" />
     <Compile Include="WindowsHooks\HookCallbacks.cs" />
     <Compile Include="WindowsHooks\Kernel32.cs" />
