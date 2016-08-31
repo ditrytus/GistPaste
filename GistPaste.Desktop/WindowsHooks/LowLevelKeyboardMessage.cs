@@ -2,7 +2,7 @@
 
 namespace GistPaste.Desktop
 {
-    class LowLevelKeyboardMessage
+    public class LowLevelKeyboardMessage
     {
         public LowLevelKeyboardMessage(int nCode, IntPtr wParam, IntPtr lParam)
         {

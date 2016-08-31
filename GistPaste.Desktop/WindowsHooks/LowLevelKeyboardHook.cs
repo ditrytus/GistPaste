@@ -1,19 +1,23 @@
-﻿using System;
+﻿using GistPaste.Desktop.WindowsHooks;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
 namespace GistPaste.Desktop
 {
-    class LowLevelKeyboardHook : IObservable<LowLevelKeyboardMessage>
+    public class LowLevelKeyboardHook : IObservable<LowLevelKeyboardMessage>
     {
-        private List<LowLevelKeyboardHookSubscription> subscriptions;
-        private static IntPtr hookId = IntPtr.Zero;
-        private LowLevelKeyboardProc callback;
+        private readonly List<LowLevelKeyboardHookSubscription> subscriptions = new List<LowLevelKeyboardHookSubscription>();
+        private readonly LowLevelKeyboardProc callback;
+        private IntPtr hookId = IntPtr.Zero;
+        private IUser32 user32;
+        private IKernel32 kernel32;
 
-        public LowLevelKeyboardHook()
+        public LowLevelKeyboardHook(IUser32 user32, IKernel32 kernel32)
         {
-            subscriptions = new List<LowLevelKeyboardHookSubscription>();
+            this.user32 = user32;
+            this.kernel32 = kernel32;
             callback = HookCallback;
         }
 
@@ -28,12 +32,12 @@ namespace GistPaste.Desktop
             return subscription;
         }
 
-        private static IntPtr SetHook(LowLevelKeyboardProc proc)
+        private IntPtr SetHook(LowLevelKeyboardProc proc)
         {
             using (Process curProcess = Process.GetCurrentProcess())
             using (ProcessModule curModule = curProcess.MainModule)
             {
-                return User32.SetWindowsHookEx(HookTypes.WH_KEYBOARD_LL, proc, Kernel32.GetModuleHandle(curModule.ModuleName), 0);
+                return user32.SetWindowsHookEx(HookTypes.WH_KEYBOARD_LL, proc, kernel32.GetModuleHandle(curModule.ModuleName), 0);
             }
         }
 
@@ -45,7 +49,7 @@ namespace GistPaste.Desktop
                 subscriptions.ForEach(s => s.Push(message));
             }
 
-            return User32.CallNextHookEx(hookId, nCode, wParam, lParam);
+            return user32.CallNextHookEx(hookId, nCode, wParam, lParam);
         }
 
         private void Unsubscribe(LowLevelKeyboardHookSubscription subscription)
@@ -53,7 +57,7 @@ namespace GistPaste.Desktop
             subscriptions.Remove(subscription);
             if (!subscriptions.Any())
             {
-                User32.UnhookWindowsHookEx(hookId);
+                user32.UnhookWindowsHookEx(hookId);
             }
         }
 

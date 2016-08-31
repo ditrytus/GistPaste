@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
+using GistPaste.Desktop.WindowsHooks;
 
 namespace GistPaste.Desktop
 {
@@ -16,7 +17,7 @@ namespace GistPaste.Desktop
 
         public App()
         {
-            keyboardHook = new LowLevelKeyboardHook()
+            keyboardHook = new LowLevelKeyboardHook(new DllImportedUser32(), new DllImportedKernel32())
                 .Subscribe(m =>
                 {
                     Debug.WriteLine(KeyInterop.KeyFromVirtualKey(Marshal.ReadInt32(m.LParam)));
