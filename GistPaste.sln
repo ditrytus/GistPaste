@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GistPaste.Desktop", "GistPaste.Desktop\GistPaste.Desktop.csproj", "{82A43793-8663-4AB5-A0E8-B412883A503C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GistPaste.Desktop.UnitTests", "GistPaste.Desktop.UnitTests\GistPaste.Desktop.UnitTests.csproj", "{BBFE119F-6342-4EB7-B390-FDA6C2FA2945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{82A43793-8663-4AB5-A0E8-B412883A503C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82A43793-8663-4AB5-A0E8-B412883A503C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A43793-8663-4AB5-A0E8-B412883A503C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFE119F-6342-4EB7-B390-FDA6C2FA2945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFE119F-6342-4EB7-B390-FDA6C2FA2945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFE119F-6342-4EB7-B390-FDA6C2FA2945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFE119F-6342-4EB7-B390-FDA6C2FA2945}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

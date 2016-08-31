@@ -75,11 +75,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowsHooks\DllImportedKernel32.cs" />
+    <Compile Include="WindowsHooks\DllImportedUser32.cs" />
     <Compile Include="WindowsHooks\HookCallbackCodes.cs" />
     <Compile Include="WindowsHooks\HookCallbacks.cs" />
-    <Compile Include="WindowsHooks\Kernel32.cs" />
+    <Compile Include="WindowsHooks\IKernel32.cs" />
+    <Compile Include="WindowsHooks\IUser32.cs" />
+    <Compile Include="WindowsHooks\Kernel32DllImports.cs" />
     <Compile Include="WindowsHooks\LowLevelKeyboardMessage.cs" />
-    <Compile Include="WindowsHooks\User32.cs" />
+    <Compile Include="WindowsHooks\User32DllImports.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
