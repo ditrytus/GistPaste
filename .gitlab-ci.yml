@@ -1,4 +1,4 @@
 build:
     script:
         - cd
-        - build
+        - build.bat
