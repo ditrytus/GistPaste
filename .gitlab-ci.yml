@@ -1,3 +1,7 @@
 build:
     script:
-        - build
+        - build BuildApp
+
+test:
+	script:
+		- build Test
