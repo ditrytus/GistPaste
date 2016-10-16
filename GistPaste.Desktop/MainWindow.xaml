@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:GistPaste.Desktop"
+        xmlns:user="clr-namespace:GistPaste.Desktop.Controls"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="20" Width="500"
@@ -13,7 +14,6 @@
         Topmost="True"
         AllowsTransparency="True"
         WindowStyle="None"
-        Activated="Window_Activated"
         KeyDown="Window_KeyDown">
     <Grid>
         <tb:TaskbarIcon
@@ -27,6 +27,6 @@
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
-        <TextBox Name="SearchBox" LostKeyboardFocus="SearchBox_LostKeyboardFocus" />
+        <user:SearchBox/>
     </Grid>
 </Window>

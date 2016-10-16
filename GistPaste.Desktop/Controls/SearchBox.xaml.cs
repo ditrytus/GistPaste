@@ -13,29 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GistPaste.Desktop
+namespace GistPaste.Desktop.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SearchBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SearchBox : UserControl
     {
-        public MainWindow()
+        public SearchBox()
         {
             InitializeComponent();
-        }
-
-        private void SearchBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-            {
-                this.Hide();
-            }
         }
     }
 }
