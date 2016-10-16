@@ -82,6 +82,9 @@
     <Compile Include="Controls\SearchBox.xaml.cs">
       <DependentUpon>SearchBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Taskbar.xaml.cs">
+      <DependentUpon>Taskbar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsHooks\DllImportedKernel32.cs" />
     <Compile Include="WindowsHooks\DllImportedUser32.cs" />
     <Compile Include="WindowsHooks\HookCallbackCodes.cs" />
@@ -92,6 +95,10 @@
     <Compile Include="WindowsHooks\LowLevelKeyboardMessage.cs" />
     <Compile Include="WindowsHooks\User32DllImports.cs" />
     <Page Include="Controls\SearchBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Taskbar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

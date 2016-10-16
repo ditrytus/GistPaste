@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:GistPaste.Desktop"
         xmlns:user="clr-namespace:GistPaste.Desktop.Controls"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="20" Width="500"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Topmost="True"
@@ -16,17 +14,7 @@
         WindowStyle="None"
         KeyDown="Window_KeyDown">
     <Grid>
-        <tb:TaskbarIcon
-            IconSource="Images\Treetog-I-Documents.ico"
-            ToolTipText="GistPaste">
-            <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Open" />
-                    <MenuItem Header="Options" />
-                    <MenuItem Header="Exit" />
-                </ContextMenu>
-            </tb:TaskbarIcon.ContextMenu>
-        </tb:TaskbarIcon>
+        <user:Taskbar/>
         <user:SearchBox/>
     </Grid>
 </Window>
