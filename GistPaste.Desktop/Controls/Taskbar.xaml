@@ -13,7 +13,7 @@
             ToolTipText="GistPaste">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Open" />
+                    <MenuItem Header="Open Search Box" />
                     <MenuItem Header="Options" />
                     <MenuItem Header="Exit" />
                 </ContextMenu>
