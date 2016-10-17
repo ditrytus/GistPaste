@@ -12,7 +12,8 @@
         Topmost="True"
         AllowsTransparency="True"
         WindowStyle="None"
-        KeyDown="Window_KeyDown">
+        KeyDown="Window_KeyDown"
+        Height="20" Width="500">
     <Grid>
         <user:Taskbar/>
         <user:SearchBox/>
